@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import localData from "../data/localData"
+import Mainpage from "./Mainpage"
 import {Image, StyleSheet, View, Text, Dimensions, TouchableOpacity} from "react-native"
 const {height, width} = Dimensions.get('window')
 
@@ -13,6 +15,11 @@ export default class Welcome extends Component {
     }
 
     componentDidMount () {
+        const {navigator} = this.props;
+        this.theme = new localData().loadThemeFromLocal()
+            .then((theme) => {
+                return theme;
+            })
         this.timer = setInterval(() => {
             if (this.state.time > 0) {
                 this.setState({
@@ -21,6 +28,14 @@ export default class Welcome extends Component {
                     if (this.state.time < 1) {
                         this.setState({
                             hidden: true
+                        }, () => {
+                            navigator.push({
+                                component: Mainpage,
+                                name: "Mainpage",
+                                params: {
+                                    theme: this.theme
+                                }
+                            })
                         })
                     }
                 }) 
@@ -36,6 +51,14 @@ export default class Welcome extends Component {
     close () {
         this.setState({
             hidden: true
+        }, () => {
+            navigator.push({
+                component: Mainpage,
+                name: "Mainpage",
+                params: {
+                    theme: this.theme
+                }
+            })
         })
     }
 

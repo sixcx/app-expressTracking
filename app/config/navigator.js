@@ -9,7 +9,7 @@ export default class Navigation extends Component {
     }
 
     _renderScene(route, navigator) {
-        return <route.component navigator={navigator}  {...route.passProps} />;
+        return <route.component navigator={navigator}  {...route.params} />;
     }
 
     configureScene(route, routeStack) {
