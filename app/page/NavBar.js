@@ -2,7 +2,7 @@
  * @Author: pbh 
  * @Date: 2017-10-25 16:25:37 
  * @Last Modified by: pbh
- * @Last Modified time: 2017-10-26 11:00:51
+ * @Last Modified time: 2017-10-27 15:45:35
  * NavBar组件
  */
 
@@ -87,7 +87,7 @@ export default class NavBar extends Component {
 
         return (
             <View style={[styles.container, this.props.style]}>
-                {statusbar}
+                {statusBar}
                 {content}
             </View>
         )
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: Platform.OS === 'ios' ? NAV_BAR_HEIGHT_IOS : NAV_BAR_HEIGHT_ANDROID
+        height: Platform.OS === 'ios' ? NAV_HEIGHT_IOS : NAV_HEIGHT_ANDROID
     },
     navTitle: {
         alignItems: 'center',

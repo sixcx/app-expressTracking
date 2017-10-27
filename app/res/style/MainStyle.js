@@ -2,7 +2,7 @@
  * @Author: pbh 
  * @Date: 2017-10-25 17:06:02 
  * @Last Modified by: pbh
- * @Last Modified time: 2017-10-25 17:20:44
+ * @Last Modified time: 2017-10-27 14:22:16
  * 全局样式
  */
 import {Dimensions} from "react-native"
@@ -34,11 +34,11 @@ module.exports = {
         marginLeft: 5,
         marginRight: 5,
         marginVertical: 3,
-        borderColor:Colors.lightgray,
+        borderColor: Color.lightgray,
         borderStyle: null,
         borderWidth: 0.5,
         borderRadius: 2,
-        shadowColor:Colors.gray,
+        shadowColor: Color.gray,
         shadowOffset: {width:0.5, height: 0.5},
         shadowOpacity: 0.4,
         shadowRadius: 1,

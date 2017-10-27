@@ -2,7 +2,7 @@
  * @Author: pbh 
  * @Date: 2017-10-26 17:39:32 
  * @Last Modified by: pbh
- * @Last Modified time: 2017-10-26 17:42:59
+ * @Last Modified time: 2017-10-27 15:44:36
  * 主题
  */
 
@@ -33,7 +33,7 @@
  }
 
  export default class theme {
-     createTheme (flag) {
+     static createTheme (flag) {
         return {
             themeColor: flag,
             styles: StyleSheet.create({
@@ -41,13 +41,13 @@
                     color: flag
                 },
                 tabBarSelectedIcon: {
-                    tintColor: themeFlag
+                    tintColor: flag
                 },
                 navBar:{
-                    backgroundColor:themeFlag,
+                    backgroundColor:flag,
                 },
                 themeColor:{
-                    color:themeFlag
+                    color:flag
                 }
             })
         }

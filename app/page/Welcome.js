@@ -4,6 +4,8 @@ import Mainpage from "./Mainpage"
 import {Image, StyleSheet, View, Text, Dimensions, TouchableOpacity} from "react-native"
 const {height, width} = Dimensions.get('window')
 
+import theme, {themeFlag} from "../res/style/theme"
+
 export default class Welcome extends Component {
     constructor (props) {
         super(props)
@@ -14,12 +16,16 @@ export default class Welcome extends Component {
         }
     }
 
+    componentWillMount () {
+        this.theme = theme.createTheme(themeFlag.Blue);
+    }
     componentDidMount () {
         const {navigator} = this.props;
-        this.theme = new localData().loadThemeFromLocal()
+        /* this.theme = new localData().loadThemeFromLocal()
             .then((theme) => {
-                return theme;
-            })
+                this.theme = theme;
+                console.log(theme)
+            }) */
         this.timer = setInterval(() => {
             if (this.state.time > 0) {
                 this.setState({
@@ -29,7 +35,7 @@ export default class Welcome extends Component {
                         this.setState({
                             hidden: true
                         }, () => {
-                            navigator.push({
+                            navigator.resetTo({
                                 component: Mainpage,
                                 name: "Mainpage",
                                 params: {
@@ -52,7 +58,7 @@ export default class Welcome extends Component {
         this.setState({
             hidden: true
         }, () => {
-            navigator.push({
+            this.props.navigator.resetTo({
                 component: Mainpage,
                 name: "Mainpage",
                 params: {

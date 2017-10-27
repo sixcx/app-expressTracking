@@ -2,7 +2,7 @@
  * @Author: pbh 
  * @Date: 2017-10-26 17:43:55 
  * @Last Modified by: pbh
- * @Last Modified time: 2017-10-26 17:53:06
+ * @Last Modified time: 2017-10-27 15:07:49
  */
 
  import React, {Component} from "react"
@@ -16,6 +16,16 @@
          super (props)
      }
 
+     //保存主题
+     saveThemeDataToLocal(theme){
+        console.log(theme);
+        storage.save({
+            key: common.SeachRemarkKey,
+            id: common.SeachRemarkKey,
+            data: theme,
+            expires: null
+        });
+    }
      //获取主题
      loadThemeFromLocal () {
          return new Promise((resolve, reject) => {
